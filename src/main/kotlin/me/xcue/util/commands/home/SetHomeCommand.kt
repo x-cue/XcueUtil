@@ -5,6 +5,7 @@ import com.hypixel.hytale.component.Store
 import com.hypixel.hytale.math.vector.Location
 import com.hypixel.hytale.server.core.Message
 import com.hypixel.hytale.server.core.command.system.CommandContext
+import com.hypixel.hytale.server.core.command.system.CommandSender
 import com.hypixel.hytale.server.core.command.system.arguments.system.DefaultArg
 import com.hypixel.hytale.server.core.command.system.basecommands.AbstractPlayerCommand
 import com.hypixel.hytale.server.core.universe.PlayerRef
@@ -16,6 +17,10 @@ import me.xcue.util.services.PlayerService
 class SetHomeCommand: AbstractPlayerCommand("sethome", "Binds /home to your current location.") {
     private val nameArg: DefaultArg<String> =
         withDefaultArg("name", "Name of the home", HomeArg(), "home", "")
+
+    override fun hasPermission(sender: CommandSender): Boolean {
+        return true
+    }
 
     override fun execute(
         ctx: CommandContext,

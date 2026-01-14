@@ -4,6 +4,7 @@ import com.hypixel.hytale.component.Ref
 import com.hypixel.hytale.component.Store
 import com.hypixel.hytale.server.core.Message
 import com.hypixel.hytale.server.core.command.system.CommandContext
+import com.hypixel.hytale.server.core.command.system.CommandSender
 import com.hypixel.hytale.server.core.command.system.arguments.system.DefaultArg
 import com.hypixel.hytale.server.core.command.system.basecommands.AbstractPlayerCommand
 import com.hypixel.hytale.server.core.entity.entities.Player
@@ -19,6 +20,10 @@ class HomeCommand : AbstractPlayerCommand("home", "Teleport to one of your homes
     private val nameArg: DefaultArg<String> =
         withDefaultArg("name", "Name of the home", HomeArg(), "home", "")
 
+
+    override fun hasPermission(sender: CommandSender): Boolean {
+        return true
+    }
 
     override fun execute(
         ctx: CommandContext,
