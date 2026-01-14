@@ -1,12 +1,12 @@
 {
-    "Group": "Example",
-    "Name": "TestMod",
-    "Main": "com.example.mod.TestMod",
-    "Version": "0.0.2",
-    "Description": "Hytale mod in Kotlin!",
+    "Group": "Xcue",
+    "Name": "XcueUtil",
+    "Main": "me.xcue.util.XcueUtilMod",
+    "Version": "0.0.0",
+    "Description": "Adds various utility (commands) to Hytale!",
     "Authors": [
         {
-            "Name": "It's you!"
+            "Name": ".xcue"
         }
     ],
     "Website": "example.com",
