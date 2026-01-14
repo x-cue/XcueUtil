@@ -3,6 +3,7 @@ package me.xcue.util.services
 import me.xcue.util.storage.PlayerData
 import me.xcue.util.storage.PlayerStorage
 import java.util.UUID
+import java.util.concurrent.CompletableFuture
 
 class PlayerService {
     private val store: PlayerStorage
@@ -32,6 +33,26 @@ class PlayerService {
     fun savePlayer(data: PlayerData) {
         cache[data.uuid] = data
         store.save(data)
+    }
+
+    fun unloadPlayer(uuid: UUID, save: Boolean = true) {
+        CompletableFuture.runAsync {
+            if (save) {
+                savePlayer(uuid)
+            }
+        }.whenCompleteAsync { _, _ ->
+            cache.remove(uuid)
+        }.exceptionallyAsync { e ->
+            e.printStackTrace()
+
+            return@exceptionallyAsync null
+        }
+    }
+
+    fun savePlayer(uuid: UUID) {
+        val data = cache[uuid] ?: return
+
+        savePlayer(data)
     }
 
     fun saveAll() {

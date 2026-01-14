@@ -46,7 +46,7 @@ class PlayerJsonStorage : me.xcue.util.storage.PlayerStorage {
 
     override fun loadAll(): MutableList<PlayerData> {
         val data: MutableList<PlayerData> = mutableListOf()
-        val files = dataFolder.listFiles{dir, name ->
+        val files = dataFolder.listFiles{_, name ->
             name.endsWith(".json")
         }
 
