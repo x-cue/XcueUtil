@@ -2,7 +2,7 @@
     "Group": "Xcue",
     "Name": "XcueUtil",
     "Main": "me.xcue.util.XcueUtilMod",
-    "Version": "0.0.0",
+    "Version": "0.0.1",
     "Description": "Adds various utility (commands) to Hytale!",
     "Authors": [
         {
