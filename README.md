@@ -20,3 +20,11 @@ Players can create "homes" that will save locations for them to teleport back to
 
 #### /sethome [name]
 > Sets a named home at the player's current location. If no name is provided, the default is "home"
+
+### Tpa System
+
+#### /tpa <player>
+> Send a teleportation request to the specific player.
+
+#### /tpaccept
+> Accept the most recent incoming teleportation request.
