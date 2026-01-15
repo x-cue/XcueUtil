@@ -34,10 +34,10 @@ class TpAcceptCommand : AbstractPlayerCommand("tpaccept", "Accept an incoming te
 
         val requester =
             Universe.get().getPlayer(req.requester) ?: return ctx.sendMessage(Message.raw("The requester is offline."))
-        val tform = pRef.transform
+        val tform = pRef.transform.clone()
 
         requester.reference?.store?.addComponent(
-            ref,
+            requester.reference!!,
             Teleport.getComponentType(),
             Teleport(pWorld, tform.position, tform.rotation)
         )

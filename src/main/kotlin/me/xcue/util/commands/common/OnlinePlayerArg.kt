@@ -17,7 +17,7 @@ class OnlinePlayerArg : ProcessedArgumentType<String, UUID>(
         }
 
         for (player in Universe.get().players) {
-            if (player.username.lowercase() == value) {
+            if (player.username.equals(value, ignoreCase = true)) {
                 return player.uuid
             }
         }

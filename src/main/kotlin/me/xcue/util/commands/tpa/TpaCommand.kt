@@ -28,11 +28,13 @@ class TpaCommand : AbstractPlayerCommand("tpa", "Send a teleportation request to
         pWorld: World
     ) {
         val targetId = ctx.get(playerArg) ?: return ctx.sendMessage(Message.raw("That player is not online."))
-        val target = Universe.get().getPlayer(targetId) ?: return ctx.sendMessage(Message.raw("That player is not online."))
-        if (targetId.toString().lowercase() == pRef.uuid.toString()) return ctx.sendMessage(Message.raw("You cannot teleport to yourself."))
+        val target =
+            Universe.get().getPlayer(targetId) ?: return ctx.sendMessage(Message.raw("That player is not online."))
+        if (targetId.toString() == pRef.uuid.toString()) return ctx.sendMessage(Message.raw("You cannot teleport to yourself."))
 
 
         XcueUtilMod.tpaService.tpa(pRef.uuid, targetId)
         ctx.sendMessage(Message.raw("Sent a teleportation request to ${target.username}"))
+        target.sendMessage(Message.raw("You have received an incoming teleportation request from ${pRef.username}. You have 5 seconds to /tpaccept"))
     }
 }
