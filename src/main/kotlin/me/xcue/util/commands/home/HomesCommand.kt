@@ -15,7 +15,7 @@ class HomesCommand: AbstractPlayerCommand("homes", "List your personal homes.") 
     override fun hasPermission(sender: CommandSender): Boolean {
         return true
     }
-    // TODO add cooldown
+
     override fun execute(
         ctx: CommandContext,
         store: Store<EntityStore?>,

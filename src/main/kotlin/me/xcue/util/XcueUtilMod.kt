@@ -10,6 +10,7 @@ import com.hypixel.hytale.server.core.plugin.JavaPluginInit
 import me.xcue.util.commands.HelloCommand
 import me.xcue.util.commands.home.DelHomeCommand
 import me.xcue.util.commands.home.HomeCommand
+import me.xcue.util.commands.home.HomesCommand
 import me.xcue.util.commands.home.SetHomeCommand
 import me.xcue.util.commands.tpa.TpAcceptCommand
 import me.xcue.util.commands.tpa.TpaCommand
@@ -48,7 +49,7 @@ class XcueUtilMod(init: JavaPluginInit) : JavaPlugin(init) {
         commandRegistry.registerCommand(HomeCommand())
         commandRegistry.registerCommand(DelHomeCommand())
         commandRegistry.registerCommand(SetHomeCommand())
-
+        commandRegistry.registerCommand(HomesCommand())
 
         commandRegistry.registerCommand(TpaCommand())
         commandRegistry.registerCommand(TpAcceptCommand())
