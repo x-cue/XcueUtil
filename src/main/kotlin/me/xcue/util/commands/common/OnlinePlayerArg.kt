@@ -8,8 +8,7 @@ import com.hypixel.hytale.server.core.universe.Universe
 import java.util.UUID
 
 class OnlinePlayerArg : ProcessedArgumentType<String, UUID>(
-    "player", Message.raw("/tpa <player>"),
-    StringArgumentType("name", "ahh", "bahh"), "/tpa <player>"
+    "player", Message.raw("/tpa <player>"), StringArgumentType(), "/tpa <player>"
 ) {
     override fun processInput(value: String?): UUID? {
         if (value == null) {
